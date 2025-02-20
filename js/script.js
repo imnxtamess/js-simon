@@ -12,7 +12,7 @@ const inputNum5 = document.querySelector('#input-group>input:last-child')
 
 
 
-let timer = 30;
+let timer = 3;
 
 // create countdown function
 
@@ -33,13 +33,12 @@ const countdownId = setInterval(function () {
 // create 5 numbers array function
 
 function generateFiveNums() {
-  const numList = []
-  for (let i = 0; i < 5; i++) {
-    let thisNum = i
-    thisNum = Math.floor(Math.random() * 9) + 1;
-    numList.push(thisNum)
+  const numList = new Set()
+  while (numList.size < 5) {
+    let thisNum = Math.floor(Math.random() * 9) + 1;
+    numList.add(thisNum)
   }
-  return numList
+  return Array.from(numList)
 }
 
 // push the fiveNums to the html page function
@@ -84,12 +83,13 @@ formEl.addEventListener('submit', function (e) {
       guessed_list.push(thisNum) // each time a number is guessed correctly it is then added to the guessed numbers list
     }
   }
-
+  countdownEl.classList.remove("d-none")
+  instructionsEl.classList.add("d-none")
   if (guessed_count > 0) {
-    instructionsEl.innerText = (`You have guessed: ${guessed_count} Numbers correctly. Here's a list of the correct ones: ${guessed_list}`)
+    countdownEl.innerHTML = (`You have guessed: </br> ${guessed_count} Numbers correctly.</br> Here's a list of the correct ones: ${guessed_list}`)
   }
   else {
-    instructionsEl.innerText = ("You haven't guessed any of the numbers. Try again by refreshing the page!")
+    countdownEl.innerHTML = ("You haven't guessed any of the numbers.</br>Try again by refreshing the page!")
   }
 })
 
