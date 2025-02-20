@@ -1,7 +1,7 @@
 // Select dom elements
 
 const countdownEl = document.getElementById("countdown")
-const numbersEl = document.getElementById("numbers-list")
+const numbersListEl = document.getElementById("numbers-list")
 const formEl = document.getElementById("answers-form")
 
 
@@ -30,6 +30,19 @@ function generateFiveNums() {
   }
   return numList
 }
+
+// push the fiveNums to the html page 
+
+function pushNumsToPage() {
+  const numList = generateFiveNums()
+  for (let i = 0; i < numList.length; i++) {
+    thisNum = numList[i];
+    numbersListEl.insertAdjacentHTML('beforeend', `<li>${thisNum}</li>`)
+  }
+}
+
+
+
 
 
 
