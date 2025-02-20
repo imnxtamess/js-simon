@@ -5,7 +5,7 @@ const numbersListEl = document.getElementById("numbers-list")
 const formEl = document.getElementById("answers-form")
 
 
-let timer = 30;
+let timer = 3;
 
 // create countdown function
 
@@ -16,6 +16,8 @@ const countdownId = setInterval(function () {
 
   if (timer === 0) {
     clearInterval(countdownId)
+    countdownEl.classList.add('d-none') // when the timer reaches 0 add class d-none to timer
+    numbersListEl.classList.add('d-none') // when timer reaches 0 add class d-none to numbersListEl
   }
 }, 1000)
 
@@ -31,7 +33,7 @@ function generateFiveNums() {
   return numList
 }
 
-// push the fiveNums to the html page 
+// push the fiveNums to the html page function
 
 function pushNumsToPage() {
   const numList = generateFiveNums()
@@ -40,6 +42,14 @@ function pushNumsToPage() {
     numbersListEl.insertAdjacentHTML('beforeend', `<li>${thisNum}</li>`)
   }
 }
+
+pushNumsToPage()
+
+
+
+
+
+
 
 
 
