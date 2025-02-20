@@ -87,7 +87,9 @@ formEl.addEventListener('submit', function (e) {
   if (guessed_count > 0) {
     instructionsEl.innerText = (`You have guessed: ${guessed_count} Numbers correctly. Here's a list of the correct ones: ${guessed_list}`)
   }
-
+  else {
+    instructionsEl.innerText = ("You haven't guessed any of the numbers. Try again by refreshing the page!")
+  }
 })
 
 
