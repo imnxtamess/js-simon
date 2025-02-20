@@ -64,6 +64,7 @@ const ranNum5 = document.querySelector("#numbers-list>li:last-child")
 const ranNumList = [ranNum1.innerText, ranNum2.innerText, ranNum3.innerText, ranNum4.innerText, ranNum5.innerText]
 
 
+console.log(ranNumList);
 
 
 // save the input numbers into an array after the button gets clicked
@@ -74,13 +75,16 @@ formEl.addEventListener('submit', function (e) {
   inputArray.push(inputNum1.value, inputNum2.value, inputNum3.value, inputNum4.value, inputNum5.value)
   console.log(inputArray);
   let guessed_count = 0
+  let guessed_list = []
   for (let i = 0; i < inputArray.length; i++) {
     thisNum = inputArray[i]
     if (ranNumList.includes(thisNum)) {
       guessed_count += 1
-      console.log(guessed_count);
-
+      guessed_list.push(thisNum)
     }
+  }
+  if (guessed_count > 0) {
+    instructionsEl.innerText = `You have guessed ${guessed_count} Numbers: ${guessed_list.toString}`
   }
 
 })
