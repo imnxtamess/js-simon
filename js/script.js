@@ -12,7 +12,7 @@ const inputNum5 = document.querySelector('#input-group>input:last-child')
 
 
 
-let timer = 3;
+let timer = 30;
 
 // create countdown function
 
