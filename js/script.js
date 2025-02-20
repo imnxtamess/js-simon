@@ -55,6 +55,7 @@ function pushNumsToPage() {
 
 pushNumsToPage()
 
+// save the random numbers in an array
 const ranNum1 = document.querySelector("#numbers-list>li:first-child")
 const ranNum2 = document.querySelector('#numbers-list>li:nth-child(2)')
 const ranNum3 = document.querySelector('#numbers-list>li:nth-child(3)')
@@ -67,7 +68,7 @@ const ranNumList = [ranNum1.innerText, ranNum2.innerText, ranNum3.innerText, ran
 console.log(ranNumList);
 
 
-// save the input numbers into an array after the button gets clicked
+// save the input numbers into an array after the button gets clicked and check how many and which are correct
 
 formEl.addEventListener('submit', function (e) {
   e.preventDefault()
