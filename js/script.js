@@ -33,12 +33,12 @@ const countdownId = setInterval(function () {
 // create 5 numbers array function
 
 function generateFiveNums() {
-  const numList = new Set()
-  while (numList.size < 5) {
+  const numList = new Set() // creates a set of unique values
+  while (numList.size < 5) { //.size is the same as length but for unique numbers
     let thisNum = Math.floor(Math.random() * 9) + 1;
-    numList.add(thisNum)
+    numList.add(thisNum) // add appends a new value at the end of the set
   }
-  return Array.from(numList)
+  return Array.from(numList) // returns the set to an array
 }
 
 // push the fiveNums to the html page function
